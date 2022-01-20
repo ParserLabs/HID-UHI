@@ -1,0 +1,53 @@
+{
+  "phrList": [
+    {
+      "id": "paytm",
+      "name": "PayTM",
+      "androidURL": "https://play.google.com/store/apps/details?id=net.one97.paytm",
+      "iosURL": " https://apps.apple.com/in/app/paytm-upi-payments-recharge/id473941634",
+      "intentURL": "uhi://discover?hip="
+    },
+    {
+      "id": "eka",
+      "name": "Eka Care",
+      "androidURL": "https://play.google.com/store/apps/details?id=eka.care",
+      "iosURL": "https://apps.apple.com/in/app/eka-care-medical-records-phr/id1561621558",
+      "intentURL": "https://eka.im?hip="
+    },
+    {
+      "id": "aarogya",
+      "name": "Aarogya Setu",
+      "androidURL": "https://play.google.com/store/apps/details?id=nic.goi.aarogyasetu",
+      "iosURL": "https://apps.apple.com/in/app/aarogyasetu/id1505825357",
+      "intentURL": "uhi://discover?hip="
+    },
+    {
+      "id": "docprime",
+      "name": "Docprime",
+      "androidURL": "https://play.google.com/store/apps/details?id=com.docprime",
+      "iosURL": "",
+      "intentURL": "uhi://discover?hip="
+    },
+    {
+      "id": "driefcase",
+      "name": "DReifcase",
+      "androidURL": "https://play.google.com/store/apps/details?id=apps.driefcase.com&hipid=",
+      "iosURL": "https://apps.apple.com/in/app/driefcase/id1139192107",
+      "intentURL": "uhi://discover?hip="
+    },
+    {
+      "id": "raxa",
+      "name": "Raxa",
+      "androidURL": "https://play.google.com/store/apps/details?id=com.raxa.EMR",
+      "iosURL": "https://apps.apple.com/us/app/raxa/id719432782",
+      "intentURL": "uhi://discover?hip="
+    },
+    {
+      "id": "ndhm",
+      "name": "NDHM Health Records",
+      "androidURL": "https://play.google.com/store/apps/details?id=in.ndhm.phr",
+      "iosURL": "",
+      "intentURL": "uhi://discover?hip="
+    }
+  ]
+}
