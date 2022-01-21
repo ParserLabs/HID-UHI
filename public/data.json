@@ -5,7 +5,7 @@
       "name": "PayTM",
       "androidURL": "https://play.google.com/store/apps/details?id=net.one97.paytm",
       "iosURL": " https://apps.apple.com/in/app/paytm-upi-payments-recharge/id473941634",
-      "intentURL": "uhi://discover?hip="
+      "intentURL": "paytmmp://mini-app?aId=fb43d043524b47cf9a33aaeeed64119c&data=eyJzcGFyYW1zIjp7InNob3dUaXRsZUJhciI6ZmFsc2V9fQ=="
     },
     {
       "id": "eka",

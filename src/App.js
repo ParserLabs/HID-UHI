@@ -4,9 +4,9 @@ import FourOhFour from "./pages/404/FourOhFour";
 
 function App() {
   return (
-    <Router basename={"/uhi"}>
+    <Router>
       <Switch>
-        <Route exact path="/:hipId" component={Layout} />
+        <Route exact path="/uhi/:hipId" component={Layout} />
         <Route component={FourOhFour} />
       </Switch>
     </Router>

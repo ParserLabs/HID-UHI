@@ -38,25 +38,25 @@ const PHR = ({ hipId, data, deviceData }) => {
     // Check if device is desktop
     if (deviceData["device"] === "desktop") {
       deviceData["platform"] === "ios"
-        ? (window.location = data.iosURL)
-        : (window.location = data.androidURL);
+        ? (window.location.href = data.iosURL)
+        : (window.location.href = data.androidURL);
     } else {
       let now = new Date().valueOf();
-      window.location = data.intentURL + hipId;
+      window.location.href = data.intentURL + hipId;
       // Set different timings for iOS and Android devices
       if (deviceData["platform"] === "ios") {
         setTimeout(function () {
           if (new Date().valueOf() - now > 1800) return;
-          window.location = data.iosURL;
+          window.location.href = data.iosURL;
         }, 1500);
       } else {
         setTimeout(function () {
-          if (new Date().valueOf() - now > 1500) return;
+          if (new Date().valueOf() - now > 1800) return;
           // If DRiefcase, add hipId to the Play Store URL
           data.id === "driefcase"
-            ? (window.location = data.androidURL + hipId)
-            : (window.location = data.androidURL);
-        }, 1000);
+            ? (window.location.href = data.androidURL + hipId)
+            : (window.location.href = data.androidURL);
+        }, 1500);
       }
     }
   };
