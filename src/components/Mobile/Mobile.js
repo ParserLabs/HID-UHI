@@ -51,14 +51,16 @@ const Mobile = ({ data, hipId }) => {
       <div id="mobile-apps">
         <div className="phr-list">
           {data.map((element, index) => {
-            return (
+            return (deviceData["platform"] === "ios" &&
+              element.iosURL.length > 0) ||
+              deviceData["platform"] !== "ios" ? (
               <PHR
                 data={element}
                 hipId={hipId}
                 key={index}
                 deviceData={deviceData}
               />
-            );
+            ) : null;
           })}
         </div>
       </div>

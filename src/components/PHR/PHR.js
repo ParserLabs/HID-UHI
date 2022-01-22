@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./PHR.css";
 
 // Import images
@@ -34,39 +35,45 @@ const PHR = ({ hipId, data, deviceData }) => {
   };
 
   // Change location of webpage based on device and platform
-  const handleClick = (hipId, data, deviceData) => {
-    // Check if device is desktop
-    if (deviceData["device"] === "desktop") {
-      deviceData["platform"] === "ios"
-        ? (window.location.href = data.iosURL)
-        : (window.location.href = data.androidURL);
-    } else {
-      let now = new Date().valueOf();
-      window.location.href = data.intentURL + hipId;
-      // Set different timings for iOS and Android devices
-      if (deviceData["platform"] === "ios") {
-        setTimeout(function () {
-          if (new Date().valueOf() - now > 1800) return;
-          window.location.href = data.iosURL;
-        }, 1500);
-      } else {
-        setTimeout(function () {
-          if (new Date().valueOf() - now > 1800) return;
-          // If DRiefcase, add hipId to the Play Store URL
-          data.id === "driefcase"
-            ? (window.location.href = data.androidURL + hipId)
-            : (window.location.href = data.androidURL);
-        }, 1500);
-      }
-    }
-  };
+  // const handleClick = (hipId, data, deviceData) => {
+  //   let href = "";
+  //   // Check if device is desktop
+  //   if (deviceData["device"] === "desktop") {
+  //     deviceData["platform"] === "ios"
+  //       ? (href = data.iosURL)
+  //       : (href = data.androidURL);
+  //   } else {
+  //     let now = new Date().valueOf();
+  //     href = data.intentURL + hipId;
+  //     // Set different timings for iOS and Android devices
+  //     if (deviceData["platform"] === "ios") {
+  //       setTimeout(function () {
+  //         if (new Date().valueOf() - now > 2500) return;
+  //         href = data.iosURL;
+  //       }, 2000);
+  //     } else {
+  //       setTimeout(function () {
+  //         if (new Date().valueOf() - now > 2500) return;
+  //         // If DRiefcase, add hipId to the Play Store URL
+  //         data.id === "driefcase"
+  //           ? (href = data.androidURL + hipId)
+  //           : (href = data.androidURL);
+  //       }, 2000);
+  //     }
+  //   }
+  //   return href;
+  // };
 
   return (
     <>
-      {deviceData["platform"] === "ios" && data.iosURL.length === 0 ? null : (
-        <div
+      {deviceData["device"] === "desktop" ? (
+        <a
           className="phr-link"
-          onClick={() => handleClick(hipId, data, deviceData)}
+          target="_blank"
+          rel="noopener noreferrer"
+          href={
+            deviceData["platform"] === "ios" ? data.iosURL : data.androidURL
+          }
         >
           <div className="phr-app">
             <div className="icon-holder">
@@ -74,7 +81,30 @@ const PHR = ({ hipId, data, deviceData }) => {
             </div>
             <p>{data.name}</p>
           </div>
-        </div>
+        </a>
+      ) : (
+        <Link
+          to={{
+            pathname: "/uhi/deeplink/" + hipId,
+            search:
+              "?intentURL=" +
+              encodeURIComponent(data.intentURL) +
+              "&appURL=" +
+              (deviceData["platform"] === "ios"
+                ? encodeURIComponent(data.iosURL) + "&platform=ios"
+                : encodeURIComponent(data.androidURL) + "&platform=other"),
+          }}
+          className="phr-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="phr-app">
+            <div className="icon-holder">
+              <img src={getIcon(data.id)} alt="PHR logo"></img>
+            </div>
+            <p>{data.name}</p>
+          </div>
+        </Link>
       )}
     </>
   );

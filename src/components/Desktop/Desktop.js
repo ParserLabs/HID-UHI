@@ -47,14 +47,16 @@ const Desktop = ({ hipId, data }) => {
 
         <div className="phr-list desktop-phr-list">
           {data.map((element, index) => {
-            return (
+            return (deviceData["platform"] === "ios" &&
+              element.iosURL.length > 0) ||
+              deviceData["platform"] !== "ios" ? (
               <PHR
                 data={element}
                 hipId={hipId}
                 key={index}
                 deviceData={deviceData}
               />
-            );
+            ) : null;
           })}
         </div>
       </div>
